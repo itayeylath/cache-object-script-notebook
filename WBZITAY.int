@@ -1,0 +1,610 @@
+WBZITAY
+	Q
+ //test
+ // Write a function that get age and return the age in days.
+ // w $$ageInDays^WBZITAY()
+ageInDays()
+ 	n res
+ 	r "Enter your age: ", age 
+	s res = age * 365
+	w "",!
+	w "Youe age in is: "
+   q res _" days"
+ 	
+ // Write a func that print the multiplication table .	
+ // d MultinTable^WBZITAY
+MultinTable
+ f i=1:1:10
+ {
+	
+ 	f j=1:1:10
+	{
+		w " "
+		w (j*i)
+	}
+	w "",!	
+ 
+ }
+ q
+ 
+ // Write a func that print the multiplication table with 7 boom condition .	
+ // d MultinTable7Boom^WBZITAY
+MultinTable7Boom()
+ n num
+ f i=1:1:10
+ {
+	 w "",!
+ 	f j=1:1:10
+	{
+		s num = (j*i)
+		w " "
+		if (num#7=0) && (num[7)
+		{
+			w "@"
+		}
+		elseif (num#7=0)
+		{
+			w "&"
+		}
+		elseif (num[7)
+		{
+			w "#"		
+		}
+		else 
+		{
+			w num
+		}
+		
+	}	
+ 
+ }
+ q
+ 
+ // Write a function that get 3 grades and return the avarage
+ // w $$avgGrades^WBZITAY()
+avgGrades(dana, debi, delia)
+ n sum, avg
+ s sum = dana + debi + delia 
+ s avg = (sum / 3)
+ if (avg > 100)
+ {
+	 q 100
+ } 
+  else 
+ {
+	 q avg
+ }
+
+ // Write infinte loop that get grades until its get 0 and return the min and max grade.
+ // w $$munMaxGrades^WBZITAY()
+munMaxGrades()
+ n grade, min, max, res
+ set grade = 1
+ set min = 100
+ set max = 0
+ 
+ while (grade '= 0)
+ {
+  r "Give me garde ", grade
+  w "",!
+  if (grade > max)
+  {
+	  set max = grade
+  }
+  elseif (grade < min)
+  {
+	  set min = grade
+  }
+ }
+ set res = "max grade "+ max
+ 
+ w min 
+ w max
+ 
+ q res
+ 
+ // d animals^WBZITAY
+animals
+ n animal
+ s animal = ""
+ 
+ f i=1:1:5
+ {
+  r "Give me animal " , animal
+  
+  s $p(^mtempBsort("itaye"),"*",i) = animal
+  w "",!
+  
+ }
+ w ^mtempBsort("itaye")
+ q 
+ 
+ 
+  // w $$animalsById^WBZITAY
+animalsById(n)
+ n res
+ s res = $p(^mtempBsort("itaye"),"*",n)
+ q res
+ 
+   // w $$animalsById2^WBZITAY(1,3)
+animalsById2(n,index)
+ n res
+ s res = $p(^mtempBsort("itaye"),"*",n)
+ s res = $e(res,index)
+ q res
+ 
+  // w $$animalsById3^WBZITAY("1,3","at")
+animalsById3(n,s)
+ n res,l,nIndex,nValue
+ s l=$l(n,",")
+ f i=1:1:3
+ {
+  s nIndex = $e(n,i)
+  s nValue = $$animalsById(nIndex)
+  s $p(^mtempBsort("itaye"),"*",nIndex) = $replace(nValue,s,"")
+  w "",!
+  
+ }
+ s res=^mtempBsort("itaye")
+ q res
+ 
+  
+ // d animalsById4^WBZITAY
+animalsById4
+ n animal, i
+ set i=1
+ s animal = ""
+ 
+ while ((animal '= "q")&&(animal '= "Q"))
+ {
+  r "Give me animal " , animal
+  
+  i ((animal '= "q")&&(animal '= "Q"))
+  {
+   s $p(^mtempBsort("itaye"),"*",i) = animal
+   w "",!
+  }
+  
+  set i =i+1
+ }
+ w "",!
+ w ^mtempBsort("itaye")
+ q 
+ 
+  // d animalsById6^WBZITAY
+animalsById6
+ n length 
+ s length = $l(^mtempBsort("itaye"),"*")
+ w $p(^mtempBsort("itaye"),"*",length)
+ q
+ 
+  // d animalsByI7^WBZITAY
+animalsById7
+ n length 
+ s length = $l(^mtempBsort("itaye"),"*")
+ s $p(^mtempBsort("itaye"),"*",length) = "itay"
+ w ^mtempBsort("itaye")
+ q
+ 
+ // d animalsById8^WBZITAY
+animalsById8
+ n length, char, lastPiece
+ s length = $l(^mtempBsort("itaye"),"*")
+ s lastPiece = $p(^mtempBsort("itaye"),"*",(length))
+ s $e(lastPiece,(length-1)) = "z"
+ s $p(^mtempBsort("itaye"),"*",length) = lastPiece
+ w ^mtempBsort("itaye")
+ q
+ 
+  // d stringFunc1^WBZITAY("abcdefgahahaaaaaaaacc")
+stringFunc1(str)
+ n countA, countB, countC, length, char
+ s countA = 0, countB = 0, countC = 0
+ s length = $l(str)
+ i (length > 10)
+ {
+  f i=1:1:length
+  {
+   s char = $e(str,i)
+   i (char = "a")
+    {
+	    s countA = countA + 1
+    }
+    elseif(char = "b")
+    {
+	    s countB = countB + 1
+    }
+    elseif(char = "c")
+    {
+	    s countC = countC + 1
+    }    
+   
+  }
+ }
+ w countA,!
+ w countB,!
+ w countC,!
+ q 
+ 
+ // d stringFunc2^WBZITAY("abcdefgahahaaaaaaaacc")
+stringFunc2(str)
+ n length, char
+ s length = $l(str)
+ i (length > 10)
+ {
+  f i=1:1:length
+  {
+   s char = $e(str,i)
+   i (char = "a")
+    {
+	    s $e(str,i) = "c"
+    }
+    elseif(char = "b")
+    {
+	     s $e(str,i) = ""
+    }   
+  }
+ }
+ w str
+ q 
+ 
+  // d stringFunc3^WBZITAY("abcdef")
+stringFunc3(str)
+ n length, org
+ s org = str
+ s length = $l(str)
+ i (length < 10)
+ {
+  f i=1:1:length
+  {
+   i (i # 3 = 0)
+    {
+	    s $e(str,i) = "#"
+    }  
+  }
+ }
+ w org,!
+ w $zconvert(str,"U")
+ q 
+ 
+ // d stringToName^WBZITAY("hey itay how r u ?")
+stringToName(str)
+ n res, indexName, stopCondition, res, char
+ set res = ""
+ s indexName = ($f(str,"itay")) - 5
+ s stopCondition = indexName - 3
+ f i=indexName:-1:stopCondition
+  {
+	  set char = $e(str,i)
+	  set res = res _char
+  }
+ w $re(res)
+ q 
+ 
+  // d stringToName2^WBZITAY("hey itay how r u ?")
+stringToName2(str)
+ n res, indexName, stopCondition, res, char
+ set res = ""
+ s indexName = ($f(str,"itay"))
+ s stopCondition = indexName + 3
+ f i=indexName:1:stopCondition
+  {
+	  set char = $e(str,i)
+	  set res = res _char
+  }
+ w res
+ q 
+ 
+ //w $$isIdVal^WBZITAY(206627846)
+isIdVal(id)
+ n sum, length, num
+ s sum = 0
+ s length = $l(id)
+ 
+ f i=1:1:length
+ {
+	// Odd number.
+	i ( (i # 2) = 1 )
+	{
+		s num = $e(id,i)
+		s sum = sum + num
+	}
+	
+	// Even number.
+	else
+	{
+		s num = $e(id,i) * 2
+		
+		// Number less then 10.
+		i ( (num \ 10) = 0 )
+		{
+			s sum = sum + num
+		}
+		
+		// Number bigger than 10.
+		else 
+		{
+			s num = ( num \ 10 ) + ( num # 10 )
+			s sum = sum + num
+		}
+	}
+ }
+ 
+ i (sum # 10 = 0)
+ {
+	 q 1
+ }	
+ else 
+ {
+	 q 0
+ }
+ 
+ 
+
+ //d getComma^WBZITAY(1525,4)
+getComma(num)
+ n comma, res, digit, length
+ s comma = ","
+ s length = $l(num)
+ set res = ""
+ 
+ f i=1:1:length
+  {
+	s digit = $e(num,i)
+	 
+	i (num # 3 = 0)
+	 {
+		s res = res_","_digit
+	 }
+	   else
+	   	 {
+	   	s res = res_digit
+	   	 } 	 
+	 } 
+ q res
+ 
+ //d notIntNum^WBZITAY(1417826608.153111)
+ //d notIntNum^WBZITAY(354565.13654)
+notIntNum(num)
+ n roundNum, intNum, intLength
+ s roundNum = $j(num,"",3)
+ s intLength = $l(num) - 4
+ s intNum = (roundNum \ 10) * 10
+ 
+ i (intLength < 4)
+ {
+	 	 w roundNum
+ }
+ elseif(intLength >= 4)
+ {
+	 
+	//$$getComma(num)
+ }
+
+  q
+
+ // d DBex1^WBZITAY(11,5)
+DBex1(x,y)
+ n val 
+ 
+ i (x>10)
+ {
+	 s val(1,"y") = y
+ }
+ 
+ i ( $d(val) )
+ {
+	 zw val
+ }
+ 
+ else 
+ {
+	 w "val UNDEFINED"
+ }	 
+ q
+ 
+ // d DBex2^WBZITAY()
+DBex2()
+ n i, j, student, name, id, phone, grade, rec, courseName, courseGrade, courseLine
+ s i=0, courseLine=0, courseGrade=""
+ 
+ f i=1:1:1
+ {
+	 
+	 w "Student "_i,!
+	 r " Name: ", name,!
+	 r " Id: ", id,!
+	 r " Phone: ", phone,!
+	 
+	 s $p(rec,"*",1) = name
+	 s $p(rec,"*",2) = phone
+	 s ^mtempBsort("itaye", name, id) = rec
+	 
+	 f j=1:1:2
+	 {
+		 w "Course "_j,!
+		 r " Course name: ", courseName,!
+		 s courseGrade = ""
+		 s courseLine = 0
+		 
+		 while ( (courseGrade '= "q") && (courseGrade '= "Q") )
+		 {
+			 s courseLine = courseLine + 1
+			 w courseLine
+			 r " Grade: ", courseGrade,!
+			 q:courseGrade=("q")&&("Q")
+			 i (courseGrade '= "q") && (courseGrade '= "Q")
+			 {
+				 s ^mtempBsort("itaye", name, id, "course", courseName, courseLine) = courseGrade
+			 }	 
+		 }	
+	 }
+		  
+ }
+ 
+ zw ^mtempBsort("itaye")
+ q
+  
+  // avg by id
+  // d DBex3^WBZITAY(206627846)
+DBex3(id)
+ n avg, sum, count, courseLine, courseName
+ s courseName="", sum=0
+ 
+ f
+ {
+	 s courseName = $o(^mtempBsort("itaye","et",id,"course",courseName))
+	 q:courseName=""
+	 s courseLine=""
+	 
+	 f
+	 {
+		 s courseLine = $o(^mtempBsort("itaye","et",id,"course",courseName,courseLine))
+		 q:courseLine=""
+		 s sum = sum + ^mtempBsort("itaye","et",id,"course",courseName,courseLine)
+		 s count = $i(count)	
+	 }
+ }
+ 
+ w sum,!
+ w count,!
+ 
+ s avg = sum / count
+ w avg
+ 
+ q
+ 
+  // Insert 7 boom to DB
+  // d insert7Boom^WBZITAY()
+insert7Boom()
+ n num, count
+ s count=1
+ f i=1:1:10
+ {
+ 	f j=1:1:10
+	{
+		s num = (j*i)
+		
+		if (num#7=0) && (num[7)
+		{
+			s ^mtempBsort("itaye", "7BOOM", i, j) = "@"
+		}
+		elseif (num#7=0)
+		{
+			s ^mtempBsort("itaye", "7BOOM", i, j) = "&"
+		}
+		elseif (num[7)
+		{
+			s ^mtempBsort("itaye", "7BOOM", i, j) = "#"		
+		}
+		else 
+		{
+			s ^mtempBsort("itaye", "7BOOM", i, j) = num
+		}
+		
+	}	
+ 
+ }
+ q
+
+  // Return even numbers
+  // w $$sumEven7Boom^WBZITAY()
+sumEven7Boom()
+ n i, j, sum, num
+ s i="", sum=0
+ 
+ f
+ {
+	 s i = $o(^mtempBsort("itaye", "7BOOM", i))
+	 q:i=""
+	 s j = ""
+	 
+	 f 
+	 {
+		 	 s j = $o(^mtempBsort("itaye", "7BOOM", i, j))
+			 q:j=""
+			 s num = ^mtempBsort("itaye", "7BOOM", i, j)
+			 
+			i ( (num'="@") && (num'="&") && (num'="#") )
+			{
+				 i (num # 2 = 0)
+				 {
+					 s sum=sum+num
+			 	 }
+			}
+							
+	 }
+ }
+ q sum
+ 
+   // Return sum of column
+  // w $$sumOfCol^WBZITAY(1)
+sumOfCol(col)
+ n i, j, sum, num
+ s i="", sum=0
+ 
+ f
+ {
+	 s i = $o(^mtempBsort("itaye", "7BOOM", i))
+	 q:i=""
+	 s j = ""
+	 
+	 f 
+	 {
+		s j = $o(^mtempBsort("itaye", "7BOOM", i, j))
+		q:j=""
+		 
+	  	i ( j = col )
+	  	{
+		  	s num = ^mtempBsort("itaye", "7BOOM", i, j)
+		  	s sum=sum+num
+	  	}  						
+	 }
+ }
+ q sum
+ 
+ 
+ // Store exercise
+ // d sumOfCol^WBZITAY(1)
+store(storeName,bill)
+ n rec, itemCount, itemName, itemQuantity, itemPrice, itemDiscount
+ s itemCount=0
+
+ while ( (itemName '= "q") && (itemName '= "Q") )
+ {
+	 s itemCount = itemCount + 1
+	 w "Item: "_itemCount,!
+	 r "Item name: ", itemName,!
+	 r "Item quantity: ", itemQuantity,!
+	 r "Item price: ", itemPrice,!
+	 r "Item discount: ", itemDiscount,!
+	 
+	 s $p(rec,"*",1) = itemName
+	 s $p(rec,"*",2) = itemQuantity
+	 s $p(rec,"*",3) = itemPrice
+	 s $p(rec,"*",4) = itemDiscount
+#;	 s ^mtempBsort("itaye", ) = rec
+	 
+	 f j=1:1:itemCount
+	 {
+		 w "Course "_j,!
+		 r " Course name: ", courseName,!
+		 s courseGrade = ""
+		 s courseLine = 0
+		 
+		 while ( (courseGrade '= "q") && (courseGrade '= "Q") )
+		 {
+			 s courseLine = courseLine + 1
+			 w courseLine
+			 r " Grade: ", courseGrade,!
+			 q:courseGrade=("q")&&("Q")
+			 i (courseGrade '= "q") && (courseGrade '= "Q")
+			 {
+				 s ^mtempBsort("itaye", name, id, "course", courseName, courseLine) = courseGrade
+			 }	 
+		 }	
+	 
+		  
+ 	}
+ }
+ q
